@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 //INTERNALIMPORT
-import Style from "./loginAndSignUp.module.css";
+import Style from "./LoginAndSignUp.module.css";
 import images from "../img";
 import { Button } from "../components/componentIndex.js";
 
