@@ -11,8 +11,11 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.7.3",
     "axios": "^1.6.7",
+    "dotenv": "^16.4.5",
     "ether": "^0.0.9",
     "framer-motion": "^11.0.2",
+    "go-ipfs": "^0.22.0",
+    "ipfs": "^0.66.1",
     "ipfs-http-client": "^60.0.1",
     "next": "14.0.4",
     "react": "^18",

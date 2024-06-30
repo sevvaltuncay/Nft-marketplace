@@ -6,7 +6,22 @@ import axios from "axios";
 import { create as ipfsHttpClient } from "ipfs-http-client";
 import { NFTMarketplaceTarget, NFTMarketplaceABI } from "./constants";
 
-const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
+require("dotenv").config();
+const ID = process.env.PROJECT_ID;
+const secret = process.env.PROJECT_SECRET;
+const auth = `Basic${Buffer.from(`${ID}:${secret}`).toString("base64")}`;
+
+const subDomain = "https://ipfs.infura.io:5001/api/v0";
+//const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
+
+const client = ipfsHttpClient({
+  host: "infura-ipfs.io",
+  port: 5001,
+  protocol: "https",
+  headers: {
+    authorization: auth,
+  },
+});
 
 //fetch contract
 const fetchContract = (signerOrProvider) =>

@@ -51,7 +51,7 @@ contract NFTMarketplace is ERC721URIStorage {
     function getListingPrice() public view returns(uint256) {
         return listingPrice;
     }
-    //Let the create nft token
+    
     function createToken(string memory tokenURI, uint256 price) public payable returns(uint256){
         _tokenIds.increment();
 
@@ -64,7 +64,7 @@ contract NFTMarketplace is ERC721URIStorage {
 
         return newTokenId;
     }
-    //creating marketitems
+    
     function createMarketItem(uint256 tokenId, uint256 price) private {
         require(price > 0, "Price must be at least 1");
         require(
@@ -89,7 +89,7 @@ contract NFTMarketplace is ERC721URIStorage {
             false
         );
     }
-    //for resale function
+    
     function reSellToken(uint256 tokenId, uint256 price) public payable{
         require(idMarketItem[tokenId].owner == msg.sender, "Only item owner can do operation");
 
@@ -121,7 +121,7 @@ contract NFTMarketplace is ERC721URIStorage {
         payable(owner).transfer(listingPrice);
         payable(idMarketItem[tokenId].seller).transfer(msg.value);
     }
-    //getting unsold nft data
+    
     function fetchMarketItem() public view returns(MarketItem[] memory){
         uint256 itemCount = _tokenIds.current();
         uint256 unSoldItemCount = _tokenIds.current()
@@ -140,7 +140,7 @@ contract NFTMarketplace is ERC721URIStorage {
         }
         return items;
     }
-    //purchase item
+   
     function fetchMyNFT() public view returns(MarketItem[] memory){
         uint256 totalCount = _tokenIds.current();
         uint256 itemCount = 0;
@@ -163,7 +163,7 @@ contract NFTMarketplace is ERC721URIStorage {
         }
         return items;
     }
-    //single user items
+    
     function fetchItemsListed() public view returns (MarketItem[] memory) {
         uint256 totalCount = _tokenIds.current();
         uint256 itemCount = 0;

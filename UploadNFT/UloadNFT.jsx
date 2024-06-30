@@ -13,8 +13,6 @@ import { Button } from "../components/componentIndex.js";
 import { DropZone } from "./uploadNFTIndex";
 import { TbDeviceSim1 } from "react-icons/tb";
 
-//smart contract
-
 const UloadNFT = ({ uploadToIpfs, createNFT }) => {
   const [price, setPrice] = useState("");
   const [active, setActive] = useState(0);
